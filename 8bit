@@ -35,6 +35,11 @@ done
 for palette in "${!palettes[@]}"; do
   palette_file="$palette"
   for image in *.jpg *.jpeg *.png; do
+    # Skip palette images
+    if [[ " ${!palettes[@]} " =~ " ${image} " ]]; then
+      continue
+    fi
+    
     [ -e "$image" ] || continue # Skip if no matching files are found
     base_name="${image%.*}"
     extension="${image##*.}"
@@ -43,6 +48,7 @@ for palette in "${!palettes[@]}"; do
   done
 done
 
-# Clean up palette images
-rm -f *.png
-
+# Clean up generated palette images
+for palette in "${!palettes[@]}"; do
+  rm -f "$palette"
+done
