@@ -59,3 +59,4 @@ The script performs the following steps:
 
 - The script uses Floyd-Steinberg dithering for remapping the images.
 - If no images are found in the current directory, the script will simply create an empty `output_images` folder.
+- Some of the color palettes are by no means perfect, but they can be easily changed.
