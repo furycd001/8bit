@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# Define the palettes and their corresponding hex colors
+declare -A palettes
+palettes=(
+  ["gb.png"]="#0F380F #306230 #8BAC0F #9BBC0F"
+  ["monochrome.png"]="#000000 #555555 #AAAAAA #FFFFFF"
+  ["grayscale.png"]="#000000 #1A1A1A #333333 #4D4D4D"
+  ["arc.png"]="#272B35 #3A3F4B #484D5B #525466"
+  ["e5b.png"]="#E5B680 #C49B6A #A38154 #83673F"
+  ["e54.png"]="#E54865 #B93A51 #8D2C3C #611E28"
+  ["e02.png"]="#E0218A #FFB2B3 #E5B680 #E16E79 #F6B7AB"
+  ["barbie.png"]="#DA1884 #FF69B4 #FF1493 #FF85B3 #FFCCE5"
+  ["palepink.png"]="#F8BBD0 #F48FB1 #F06292 #EC407A #E91E63"
+  ["baw.png"]="#000000 #FFFFFF"
+)
+
+# Create the output directory
+output_dir="output_images"
+mkdir -p "$output_dir"
+
+# Generate the palette images
+for palette in "${!palettes[@]}"; do
+  colors=(${palettes[$palette]})
+  size="1x${#colors[@]}"
+  command="magick -size $size"
+  for color in "${colors[@]}"; do
+    command+=" xc:\"$color\""
+  done
+  command+=" -append $palette"
+  eval $command
+done
+
+# Remap images using each palette and append palette name to filenames
+for palette in "${!palettes[@]}"; do
+  palette_file="$palette"
+  for image in *.jpg *.jpeg *.png; do
+    [ -e "$image" ] || continue # Skip if no matching files are found
+    base_name="${image%.*}"
+    extension="${image##*.}"
+    output_file="$output_dir/${base_name}_${palette_file%.png}.$extension"
+    magick "$image" -dither FloydSteinberg -remap "$palette_file" "$output_file"
+  done
+done
+
+# Clean up palette images
+rm -f *.png
+
