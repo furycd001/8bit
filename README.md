@@ -1,6 +1,6 @@
 ![alt text](8bit.png "8bit")
 
-This bash script uses ImageMagick to convert images to 8-bit color palettes. It defines several color palettes and applies these palettes to all `.jpg`, `.jpeg`, and `.png` images in the current directory. The remapped images are saved in the `output_images` directory.
+This is abash script that uses ImageMagick to convert images to 8-bit color palettes. It defines several color palettes and applies these palettes to all `.jpg`, `.jpeg`, and `.png` images in the current directory. The remapped images are saved in the `output_images` directory.
 
 ## Prerequisites
 
