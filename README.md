@@ -58,5 +58,4 @@ The script performs the following steps:
 ## Notes
 
 - The script uses Floyd-Steinberg dithering for remapping the images.
-- If no images are found in the current directory, the script will skip the remapping process.
-- The script is by no means perfect, but it does what it is meant to do.
+- If no images are found in the current directory, the script will simply create an empty `output_images` folder.
