@@ -5,13 +5,12 @@ declare -A palettes
 palettes=(
   ["gb.png"]="#0F380F #306230 #8BAC0F #9BBC0F"
   ["monochrome.png"]="#000000 #555555 #AAAAAA #FFFFFF"
-  ["grayscale.png"]="#000000 #1A1A1A #333333 #4D4D4D"
-  ["arc.png"]="#272B35 #3A3F4B #484D5B #525466"
   ["e5b.png"]="#E5B680 #C49B6A #A38154 #83673F"
-  ["e54.png"]="#E54865 #B93A51 #8D2C3C #611E28"
+  ["e54.png"]="#E54865 #525466"
   ["e02.png"]="#E0218A #FFB2B3 #E5B680 #E16E79 #F6B7AB"
   ["barbie.png"]="#DA1884 #FF69B4 #FF1493 #FF85B3 #FFCCE5"
   ["palepink.png"]="#F8BBD0 #F48FB1 #F06292 #EC407A #E91E63"
+  ["paige.png"]="#E71884 #F9CEE2 #F48FB1 #FFD1DC"
   ["baw.png"]="#000000 #FFFFFF"
 )
 
